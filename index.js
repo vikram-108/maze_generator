@@ -1,59 +1,76 @@
-let n = 40, m = 40;
-var maze = new Array(n);
-var visited=new Array(n);
-for (var i = 0; i < maze.length; i++) {
-  maze[i] = new Array(m);
-  visited[i]=new Array(m);
-}
-const cont = document.createElement("container");
-cont.style.background = "white";
-cont.style.display = "inline-block";
-cont.style.border = "0px solid #252423";
-// cont.style.marginLeft = "20px";
-// cont.style.marginTop = "20px";
-const body = document.body;
-body.append(cont);
-let rows = "";
-for(let i = 0 ; i < n ; i++) {
-  rows += "20px ";
-}
-let cols = "";
-for(let i = 0 ; i < m ; i++) {
-  cols += "20px ";
-}
 
-const grid = document.createElement("grid");
-grid.id = "yo1";
-grid.style.display = "grid";
-grid.style.gridTemplateColumns = cols;
-grid.style.gridTemplateRows = rows;
-grid.style.gap = "0px";
-
-body.append(grid);
-cont.append(grid);
-
-let k ;
-for (let i=0; i<n; i++) {
-    for (let j=0; j<m; j++) {
-      visited[i][j]=0;
-        k = document.createElement("cell");
-        k.id=`${i * m + j}`;
-        maze[i][j] = k;
-        maze[i][j].classList.add("grid");
-        body.append(k);
-        cont.append(k);
-        grid.append(k);
-        k.style.border = "1px solid #252423";
-        k.style.justifyContent = "center";
-        k.style.alignItems = "center";
-        k.style.display = "flex";
-        k.style.fontSize= "3rem";
-        k.style.fontWeight = "bold";
-        k.style.background = "#252423";
-        k.className="cell";
+let setsize = document.querySelector('#setsize');
+let n , m;
+setsize.addEventListener("click" , function(){    
+    n = document.querySelector("#sizen").value;
+    n -= 0;
+    m = document.querySelector("#sizem").value;
+    m -= 0;
+    console.log(n , m);
+    createGrid(n , m);
+});
+var maze;
+var visited;
+function createGrid(n , m){
+     maze =  Array(n);
+     visited= Array(n);
+    for (var i = 0; i < maze.length; i++) {
+    maze[i] =  Array(m);
+    visited[i]= Array(m);
     }
-}
+    const cont = document.createElement("container");
+    cont.style.background = "white";
+    cont.style.display = "inline-block";
+    cont.style.border = "0px solid #252423";
+    const body = document.body;
+    body.append(cont);
+    let rows = "";
+    for(let i = 0 ; i < n ; i++) {
+    rows += "20px ";
+    }
+    let cols = "";
+    for(let i = 0 ; i < m ; i++) {
+    cols += "20px ";
+    }
 
+    const grid = document.createElement("grid");
+    grid.id = "yo1";
+    grid.style.display = "grid";
+    grid.style.gridTemplateColumns = cols;
+    grid.style.gridTemplateRows = rows;
+    grid.style.gap = "0px";
+    body.append(grid);
+    cont.append(grid);
+
+    let k ;
+    for (let i=0; i<n; i++) {
+        for (let j=0; j<m; j++) {
+        visited[i][j]=0;
+            k = document.createElement("cell");
+            k.id=`${i * m + j}`;
+            maze[i][j] = k;
+            maze[i][j].classList.add("grid");
+            body.append(k);
+            cont.append(k);
+            grid.append(k);
+            k.style.border = "1px solid #252423";
+            k.style.justifyContent = "center";
+            k.style.alignItems = "center";
+            k.style.display = "flex";
+            k.style.fontSize= "3rem";
+            k.style.fontWeight = "bold";
+            k.style.background = "#252423";
+            k.className="cell";
+        }
+    }
+
+    const yo = document.querySelector('.left');
+    yo.innerHTML += cont.innerHTML;
+    cont.innerHTML = "";
+
+    // document.getElementById(`${n * m - 1}`).style.borderRight = "";
+    // document.getElementById(`${n * m - 1}`).style.borderBottom = "";
+}
 function shuffle(array) {
   let currentIndex = array.length,  randomIndex;
 
@@ -70,6 +87,7 @@ function shuffle(array) {
 }
 
 let ord=[];
+
 
 function dfs (row, col, direction , parent) {
   if (visited[row][col]==1){ 
@@ -88,9 +106,10 @@ function dfs (row, col, direction , parent) {
     ord.push([row , col , -1]);
   }
 
-dfs(0,0,2,0);
-let sz = ord.length;
+// dfs(0,0,2,0);
+
 function animate(index , cid , type , direction , parent) {
+  let sz = ord.length;
   if(index == sz) return;
   if(type == -1)  
   {
@@ -154,21 +173,21 @@ function animate(index , cid , type , direction , parent) {
     borderTop : Pborto,
     borderLeft : Pborlef,
     borderRight : Pborri,
-    duration : 2,
+    duration : 10,
   });
 
   var myanimation = anime({
     targets: document.getElementById(`${cid}`),
     backgroundColor : `${type == 1 ? 'rgb(0 , 214 ,114)' : 'rgb(60,255,236)'}`,
     scale: [
-      {value: .1, easing: 'easeOutSine', duration: 2},
-      {value: 1, easing: 'easeInOutQuad', duration: 2}
+      {value: .1, easing: 'easeOutSine', duration: 10},
+      {value: 1, easing: 'easeInOutQuad', duration: 10}
     ],
     borderBottom : borbo,
     borderTop : borto,
     borderLeft : borlef,
     borderRight : borri,
-    duration : 2,
+    duration : 10,
     delay : 1,
     complete: ()=> {
       if(index + 1 == sz) return;
@@ -214,17 +233,21 @@ const staggersAnimation = anime.timeline({
 
 
 
-document.getElementById(`${n * m - 1}`).style.borderRight = "";
-document.getElementById(`${n * m - 1}`).style.borderBottom = "";
 
-const yo = document.querySelector('.left');
-yo.innerHTML += cont.innerHTML;
-cont.innerHTML = "";
+
+// const yo = document.querySelector('.left');
+// yo.innerHTML += cont.innerHTML;
+// cont.innerHTML = "";
 
 
 function clickHandler(event) {
-staggersAnimation.play();
+  staggersAnimation.play();
 }
 
 const btn = document.querySelector('#go');
-btn.addEventListener('click', clickHandler);
+btn.addEventListener('click', function() {
+  dfs(0 , 0 , 2 , 0);
+  setTimeout(function() {
+    animate(0 , ord[0][0] * m + ord[0][1] , 1 , ord[0][3] , ord[0][4]);
+  }, 5000);
+});

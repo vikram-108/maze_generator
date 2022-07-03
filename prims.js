@@ -1,69 +1,83 @@
-let n = 25, m = 25;
-var maze = new Array(n);
-var visited=new Array(n);
-for (var i = 0; i < maze.length; i++) {
-  maze[i] = new Array(m);
-  visited[i]=new Array(m);
-}
-const cont = document.createElement("container");
-cont.style.background = "white";
-cont.style.display = "inline-block";
-cont.style.border = "0px solid #252423";
-const body = document.body;
-body.append(cont);
-let rows = "";
-for(let i = 0 ; i < n ; i++) {
-  rows += "20px ";
-}
-let cols = "";
-for(let i = 0 ; i < m ; i++) {
-  cols += "20px ";
-}
-
-const grid = document.createElement("grid");
-grid.id = "yo1";
-grid.style.display = "grid";
-grid.style.gridTemplateColumns = cols;
-grid.style.gridTemplateRows = rows;
-grid.style.gap = "0px";
-
-body.append(grid);
-cont.append(grid);
-
-let k ;
-for (let i=0; i<n; i++) {
-    for (let j=0; j<m; j++) {
-      visited[i][j]=0;
-        k = document.createElement("cell");
-        k.id=`${i * m + j}`;
-        maze[i][j] = k;
-        maze[i][j].classList.add("grid");
-        body.append(k);
-        cont.append(k);
-        grid.append(k);
-        k.style.border = "1px solid #252423";
-        k.style.justifyContent = "center";
-        k.style.alignItems = "center";
-        k.style.display = "flex";
-        k.style.fontSize= "3rem";
-        k.style.fontWeight = "bold";
-        k.style.background = "#393e46";
-        k.className="cell";
+let setsize = document.querySelector('#setsize');
+let n , m;
+setsize.addEventListener("click" , function(){    
+    n = document.querySelector("#sizen").value;
+    n -= 0;
+    m = document.querySelector("#sizem").value;
+    m -= 0;
+    console.log(n , m);
+    createGrid(n , m);
+});
+let inx , iny ;
+function createGrid(n , m){
+    inx=Math.floor(n/2); iny=Math.floor(m/2);
+    var maze = new Array(n);
+    var visited=new Array(n);
+    for (var i = 0; i < maze.length; i++) {
+    maze[i] = new Array(m);
+    visited[i]=new Array(m);
     }
+    const cont = document.createElement("container");
+    cont.style.background = "white";
+    cont.style.display = "inline-block";
+    cont.style.border = "0px solid #252423";
+    const body = document.body;
+    body.append(cont);
+    let rows = "";
+    for(let i = 0 ; i < n ; i++) {
+    rows += "20px ";
+    }
+    let cols = "";
+    for(let i = 0 ; i < m ; i++) {
+    cols += "20px ";
+    }
+
+    const grid = document.createElement("grid");
+    grid.id = "yo1";
+    grid.style.display = "grid";
+    grid.style.gridTemplateColumns = cols;
+    grid.style.gridTemplateRows = rows;
+    grid.style.gap = "0px";
+    body.append(grid);
+    cont.append(grid);
+
+    let k ;
+    for (let i=0; i<n; i++) {
+        for (let j=0; j<m; j++) {
+        visited[i][j]=0;
+            k = document.createElement("cell");
+            k.id=`${i * m + j}`;
+            maze[i][j] = k;
+            maze[i][j].classList.add("grid");
+            body.append(k);
+            cont.append(k);
+            grid.append(k);
+            k.style.border = "1px solid #252423";
+            k.style.justifyContent = "center";
+            k.style.alignItems = "center";
+            k.style.display = "flex";
+            k.style.fontSize= "3rem";
+            k.style.fontWeight = "bold";
+            k.style.background = "#393e46";
+            k.className="cell";
+        }
+    }
+
+    const yo = document.querySelector('.left');
+    yo.innerHTML += cont.innerHTML;
+    cont.innerHTML = "";
+
+
+    // document.getElementById(`${n * m - 1}`).style.borderRight = "";
+    // document.getElementById(`${n * m - 1}`).style.borderBottom = "";
+
 }
 
 let ord=[];
 let ord2=[];
 let cur=[];
 
-let inx=Math.floor(n/2), iny=Math.floor(m/2);
 
-document.getElementById(`${n * m - 1}`).style.borderRight = "";
-document.getElementById(`${n * m - 1}`).style.borderBottom = "";
-
-const yo = document.querySelector('.left');
-yo.innerHTML += cont.innerHTML;
-cont.innerHTML = "";
 
 function clickHandler(event) {
   preprocess();
