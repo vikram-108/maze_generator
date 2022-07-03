@@ -119,13 +119,13 @@ function animate(index , cid , type , direction , parent) {
     let borbo = document.getElementById(`${cid}`).style.borderBottomColor;
     console.log(borlef , borri , borbo , borto);
     if(borlef == "rgb(0, 214, 114)") 
-      document.getElementById(`${cid}`).style.borderLeft = "1px solid rgb(60,255,236)";
+      document.getElementById(`${cid}`).style.borderLeft = "0px solid rgb(60,255,236)";
     if(borri == "rgb(0, 214, 114)") 
-      document.getElementById(`${cid}`).style.borderRight = "1px solid rgb(60,255,236)";
+      document.getElementById(`${cid}`).style.borderRight = "0px solid rgb(60,255,236)";
     if(borbo == "rgb(0, 214, 114)") 
-      document.getElementById(`${cid}`).style.borderBottom = "1px solid rgb(60,255,236)";
+      document.getElementById(`${cid}`).style.borderBottom = "0px solid rgb(60,255,236)";
     if(borto == "rgb(0, 214, 114)") 
-      document.getElementById(`${cid}`).style.borderTop = "1px solid rgb(60,255,236)";
+      document.getElementById(`${cid}`).style.borderTop = "0px solid rgb(60,255,236)";
 
       console.log(borlef , borri , borbo , borto);
 
@@ -199,37 +199,37 @@ function animate(index , cid , type , direction , parent) {
   myanimation.play();
 }
 
-const staggersAnimation = anime.timeline({
-  targets: '.cell',
-  easing: 'easeInOutSine',
-  delay: anime.stagger(50),
-  loop: false,
-  autoplay: false
-})
-.add({
-  translateX: [
-    {value: anime.stagger('-.1rem', {grid : [n , m], from: 'center', axis: 'x'}) },
-    {value: anime.stagger('.1rem', {grid : [n , m], from: 'center', axis: 'x'}) }
-  ],
-  translateY: [
-    {value: anime.stagger('-.1rem', {grid : [n , m], from: 'center', axis: 'y'}) },
-    {value: anime.stagger('.1rem', {grid : [n , m], from: 'center', axis: 'y'}) }
-  ],
-  duration: 1000,
-  scale: .5,
-  delay: anime.stagger(100, {grid : [n , m], from: 'center'})
-})
-.add({
-  scaleY: 1,
-  scale: 1,
-  translateX : 0,
-  translateY : 0,
-  rotate : 0,
-  delay: anime.stagger(20, {grid : [n , m], from: 'center'}),
-  complete : () => {
-    animate(0 , ord[0][0] * m + ord[0][1] , 1 , ord[0][3] , ord[0][4]);
-  }
-})
+// const staggersAnimation = anime.timeline({
+//   targets: '.cell',
+//   easing: 'easeInOutSine',
+//   delay: anime.stagger(50),
+//   loop: false,
+//   autoplay: false
+// })
+// .add({
+//   translateX: [
+//     {value: anime.stagger('-.1rem', {grid : [n , m], from: 'center', axis: 'x'}) },
+//     {value: anime.stagger('.1rem', {grid : [n , m], from: 'center', axis: 'x'}) }
+//   ],
+//   translateY: [
+//     {value: anime.stagger('-.1rem', {grid : [n , m], from: 'center', axis: 'y'}) },
+//     {value: anime.stagger('.1rem', {grid : [n , m], from: 'center', axis: 'y'}) }
+//   ],
+//   duration: 1000,
+//   scale: .5,
+//   delay: anime.stagger(100, {grid : [n , m], from: 'center'})
+// })
+// .add({
+//   scaleY: 1,
+//   scale: 1,
+//   translateX : 0,
+//   translateY : 0,
+//   rotate : 0,
+//   delay: anime.stagger(20, {grid : [n , m], from: 'center'}),
+//   complete : () => {
+//     animate(0 , ord[0][0] * m + ord[0][1] , 1 , ord[0][3] , ord[0][4]);
+//   }
+// })
 
 
 
