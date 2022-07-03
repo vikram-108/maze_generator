@@ -5,7 +5,6 @@ setsize.addEventListener("click" , function(){
     n -= 0;
     m = document.querySelector("#sizem").value;
     m -= 0;
-    // console.log(n , m);
     createGrid(n , m);
 });
 let inx , iny ;
@@ -67,19 +66,14 @@ function createGrid(n , m){
     yo.innerHTML += cont.innerHTML;
     cont.innerHTML = "";
     divide(0,n-1,0,m-1);
-    // console.log(ord,ord2,ord3);
 }
 
 let ord=[];
-// let ord2=[];
-// let ord3=[];
 
 function divide(r1, r2, c1, c2) {
-    // console.log(r1,r2,c1,c2);
     if (r1==r2 || c1==c2) return;
     let choose=Math.floor(2*Math.random());
 
-    //make horizontal line
     if (choose==0){
         let row=r1+Math.floor((r2-r1)*Math.random());
         let toErase=c1+Math.floor((c2-c1+1)*Math.random());
@@ -93,20 +87,14 @@ function divide(r1, r2, c1, c2) {
         divide(row+1,r2,c1,c2);
     }
 
-    //make vertical line
     if (choose==1){
         let col=c1+Math.floor((c2-c1)*Math.random());
         let toErase=r1+Math.floor((r2-r1+1)*Math.random());
         for (let i=r1; i<=r2; i++){
             if (i!=toErase){
                 ord.push([[i,col],[i,col+1]]);
-                // te2.push(document.getElementById(`${i*m+col}`));
-                // te3.push(document.getElementById(`${(i)*m+col+1}`));
             }
         }
-        // ord.push(te);
-        // ord2.push(te2);
-        // ord3.push(te3);
         divide(r1,r2,c1,col);
         divide(r1,r2,col+1,c2);
     }
@@ -114,13 +102,11 @@ function divide(r1, r2, c1, c2) {
 
 function animate(index){
     let sz=ord.length;
-    // console.log(ord);
     if (index==sz) return;
     let cidc=ord[index][0];
     let parentc;
     parentc=ord[index][1];
     
-    // console.log(cidc,parentc);
 
     let cid=cidc[0]*m+cidc[1];
     let parent;
@@ -184,15 +170,6 @@ function animate(index){
       }
     }).play()};
   
-    // var also2=function () {anime({
-    //   targets: nb[index],
-    //   backgroundColor: '#61C3FF',
-    //   duration: 10,
-    //   complete: () => {
-    //     also1();
-    //   }
-    // }).play()};
-  
     var myanimation = function () {anime({
       targets: document.getElementById(`${cid}`),
       backgroundColor : 'black',
@@ -210,10 +187,7 @@ function animate(index){
         if(index + 1 == sz) return;
         animate(index + 1);
     }}).play()};
-    // console.log(true);
     also1();
-    // also2();
-    // myanimation();
   };
 
   const btn = document.querySelector('#go');
