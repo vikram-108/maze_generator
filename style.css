@@ -1,6 +1,4 @@
-
-
- .container {
+.container {
   background: rgb(157, 128, 128);
   display: inline-block;
   border: 5px solid black;
@@ -9,9 +7,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(10, 10px);
-  grid-template-rows: repeat(10, 10px);
-  grid-gap: 5px;
+  border: 2px solid #F6FF56;
 }
 
 .cell {
@@ -76,12 +72,182 @@
   margin-left: 40%;
   width: fit-content;
   padding: 10px 30px;
-  background-color: #61c3ff;
-  border: 2px solid rgba(0, 0, 255, 0.566);
+  background-color: #252423;
+  border: 2px solid #d2d2d2;
+}
+
+
+.controls{
+flex : 1;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+}
+
+.northeast{
+color :rgba(0, 0, 255, 0.566);
+}
+
+.main__controls__button{
+display: flex;
+flex-direction: column;
+color : #D2d2d2;
+padding : 30px 30px;
+align-items: center;
+}
+
+span{
+margin-top: 10px;
+}
+
+.main__controls__button:hover{
+background-color: #343434;
+}
+
+.gridsize{
+margin-top: 20px;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+}
+
+.forn{
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+.form{
+display: flex;
+align-items: center;
+}
+
+.dosubmit{
+display: flex;
+align-items: center;
 }
 
 
 
 
+/*
+* Pleasing the eye
+*/
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:700');
 
 
+
+html,
+body {
+ display: flex;
+ width: 100%;
+ height: 100%;
+ justify-content: space-around;
+ align-items: center;
+ padding: 0;
+ margin: 0;
+ color: #747474;
+ background: linear-gradient(to bottom right, #E3E0DD, #E3E0DD);
+ font-family: 'Source Sans Pro', sans-serif;
+ overflow: hidden;
+}
+
+
+
+/*
+* Plugin style
+*/
+.numberstyle-qty {
+ position: relative;
+ border-radius: 6px;
+ background-color: #FFFFFF;
+ overflow: hidden;
+ box-shadow: 0 3px 6px rgba(#747474,0.25);
+}
+
+.numberstyle-qty input,
+.numberstyle-qty .qty-btn {
+ position: relative;
+ display: block;
+ float: left;
+ height: 40px;
+ padding: 0;
+ margin: 0;
+ border: 0px;
+ text-align: center;
+ line-height: 40px;
+ outline: 0;
+ box-shadow: 0px;
+}
+ 
+.numberstyle-qty .qty-btn {
+ width: 40px;
+ font-size: 18px;
+ cursor: pointer;
+ z-index: 2;
+ user-select: none;
+ transition: all 250ms ease;
+}  
+
+.numberstyle-qty .qty-btn.disabled {
+ cursor: default;
+ color: rgba(#747474,0.5);
+}
+ 
+.numberstyle-qty input {
+ width: 50px;
+ border-left: 0;
+ border-right: 0;
+ color: #747474;
+ font-size: 18px;
+ font-weight: 700;
+ z-index: 1;
+}
+
+.numberstyle-qty input:focus {
+ outline: 0;
+ box-shadow: 0px;
+}
+   
+.numberstyle-qty input[type=number]::-webkit-inner-spin-button,
+.numberstyle-qty input[type=number]::-webkit-outer-spin-button {
+ -webkit-appearance: none;
+ margin: 0;
+}
+   
+.numberstyle-qty input[type=number] {
+ -moz-appearance: textfield;
+}
+
+
+/*
+* More from me link 🔥
+*/
+.more {
+ position: absolute;
+ bottom: 15px;
+ right: 15px;
+ padding: 7px 21px;
+ border-radius: 8px;
+ color: #fff;
+ background-color: rgba(0,0,0,.2);
+ font-family: 'Source Sans Pro', sans-serif;
+ font-size: 0.7rem;
+ font-weight: 700;
+ text-transform: uppercase;
+ text-decoration: none;
+ overflow: hidden;
+ z-index: 1;
+ animation: reveal 5000ms cubic-bezier(.87,-.41,.19,1.44);
+}
+
+@keyframes reveal {
+   0%, 90% {
+    bottom: -30px;
+ }
+  100% {
+    bottom: 15px;
+ }
+}
