@@ -60,6 +60,9 @@
             <a class="nav-item nav-link" href="./prims.html"
               >Prims</a
             >
+            <a class="nav-item nav-link" href="./kruskals.html"
+              >Kruskals</a
+            >
             <a class="nav-item nav-link" href="./bst.html"
               >Binary Tree</a
             >
@@ -74,14 +77,18 @@
         <script src="index.js" defer></script>
         <div class="left"></div>
         <div class="right">
+          <h2>Depth First Search</h2>
           <p id="para">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste
-            numquam fuga maxime totam exercitationem quia consectetur. Minima
-            voluptates, sequi in doloremque sapiente itaque ipsum nihil? Neque,
-            aliquid. Quasi eveniet cupiditate tempore, minus molestias ut
-            repellat odio beatae molestiae esse voluptate debitis deleniti sint
-            nesciunt delectus explicabo nisi sed aut optio?
+            <ul>
+              <li>Choose a starting point in the field.</li>
+            <li>Randomly choose a wall at that point and carve a passage through to the adjacent cell, but only if the adjacent cell has not been visited yet. This becomes the new current cell.</li>
+            <li>If all adjacent cells have been visited, back up to the last cell that has uncarved walls and repeat.</li>
+            <li>The algorithm ends when the process has backed all the way up to the starting point.</li>
+            </ul>
           </p>
+          <!-- <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ab magni repellendus deserunt nisi a ipsam rerum adipisci reiciendis ducimus! Quaerat necessitatibus labore rerum debitis iste accusantium nemo voluptatibus, dolores consequuntur aut itaque explicabo eligendi veritatis doloribus ad sequi assumenda quam magni temporibus fuga aliquid sunt expedita fugit. Vitae, voluptas!
+          </p> -->
           <button id="go">Start!</button>
           <div class="gridsize">
             <div class="forn">

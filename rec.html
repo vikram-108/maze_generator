@@ -36,47 +36,63 @@
   </head>
   <body>
     <div class="main">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#">Maze Visualizer </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link" href="./main.html"
-              >DFS <span class="sr-only">(current)</span></a
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">Maze Visualizer </a>
+    
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
             >
-            <a
-              class="nav-item nav-link active"
-              href="./prims.html"
-              >Prims</a
-            >
-            <a class="nav-item nav-link" href="./bst.html"
-              >Binary Tree</a
-            >
-          </div>
-        </div>
-      </nav>
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a
+                  class="nav-item nav-link"
+                  href="./main.html"
+                  >DFS <span class="sr-only">(current)</span></a
+                >
+                <a class="nav-item nav-link" href="./prims.html"
+                  >Prims</a
+                >
+                <a class="nav-item nav-link" href="./kruskals.html"
+                  >Kruskals</a
+                >
+                <a class="nav-item nav-link" href="./bst.html"
+                  >Binary Tree</a
+                >
+                <a class="nav-item nav-link active" href="./rec.html"
+                  >Recursive</a
+                >
+              </div>
+            </div>
+          </nav>
 
       <div class="content">
         <script src="rec.js" defer></script>
         <div class="left"></div>
         <div class="right">
-          <p id="para">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste
-            numquam fuga maxime totam exercitationem quia consectetur. Minima
-            voluptates, sequi in doloremque sapiente itaque ipsum nihil? Neque,
-            aliquid. Quasi eveniet cupiditate tempore, minus molestias ut
-            repellat odio beatae molestiae esse voluptate debitis deleniti sint
-            nesciunt delectus explicabo nisi sed aut optio?
+            <h2>Recursive Division Algorithm</h2>
+          <p id="para" style="color: #d2d2d2; margin-left: 7px;">
+            The “recursive division” algorithm is one that must be implemented as a wall adder. This algorithm is particularly fascinating because of its fractal nature: you could theoretically continue the process indefinitely at progressively finer and finer levels of detail.
+            <br><br>
+It works like this:
+          </p>
+          
+          <ul>
+            <li>Begin with an empty field.</li>
+            <li>Bisect the field with a wall, either horizontally or vertically. Add a single passage through the wall.</li>
+            <li>Repeat step #2 with the areas on either side of the wall.</li>
+            <li>Continue, recursively, until the maze reaches the desired resolution.</li>
+          </ul>
+
+          <p id="para" style="color: #d2d2d2; margin-left: 7px;">
+            You’ll find that at every step, you still have a valid maze. Each repetition of the algorithm simply increases the level of detail. Pretty cool!
           </p>
           <button id="go">Start!</button>
           <div class="gridsize">

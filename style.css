@@ -33,7 +33,24 @@
   .main{
     display : flex;
     height: 100vh;
+    width: 1000vh;
     flex-direction: column;
+  }
+
+  li {
+    color: #d2d2d2;
+  }
+
+  #para {
+    color: #D2d2d2;
+  }
+
+  h2 {
+    margin-top: 30px;
+    /* margin-left: 50px; */
+    text-align: center;
+    color: #D2d2d2;
+    text-decoration: underline;
   }
 
   .content{
@@ -71,7 +88,9 @@
   }
 
   #go {
-    margin-left: 40%;
+    color: #D2d2d2;
+    margin-top: 50px;
+    margin-left: 45%;
     width: fit-content;
     padding: 10px 30px;
     background-color: #252423;
@@ -103,12 +122,18 @@ span{
   margin-top: 10px;
 }
 
+#setsize {
+  border: 1px solid #D2d2d2;
+  color: #D2d2d2;
+  background-color: #252423;
+}
+
 .main__controls__button:hover{
   background-color: #343434;
 }
 
 .gridsize {
-  margin-top: 20px;
+  margin-top: 70px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;

@@ -40,8 +40,7 @@
   <body>
     <div class="main">
       <nav class="navbar navbar-expand-lg navbar-light">
-        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-        <a class="navbar-brand" href="#">Maze Visualizer  </a>
+        <a class="navbar-brand" href="#">Maze Visualizer </a>
 
         <button
           class="navbar-toggler"
@@ -57,23 +56,22 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a
-            class="nav-item nav-link"
-            href="./main.html"
-            >DFS <span class="sr-only">(current)</span></a
-          >
-          <a class="nav-item nav-link" href="./prims.html"
-            >Prims</a
-          >
-          <a class="nav-item nav-link active" href="./bst.html"
-            >Binary Tree</a
-          >
-            <!-- <a
-              class="nav-item nav-link disabled"
-              href="#"
-              tabindex="-1"
-              aria-disabled="true"
-              >Disabled</a
-            > -->
+              class="nav-item nav-link"
+              href="./main.html"
+              >DFS <span class="sr-only">(current)</span></a
+            >
+            <a class="nav-item nav-link" href="./prims.html"
+              >Prims</a
+            >
+            <a class="nav-item nav-link" href="./kruskals.html"
+              >Kruskals</a
+            >
+            <a class="nav-item nav-link active" href="./bst.html"
+              >Binary Tree</a
+            >
+            <a class="nav-item nav-link" href="./rec.html"
+              >Recursive</a
+            >
           </div>
         </div>
       </nav>
@@ -82,13 +80,13 @@
         <script src="bst.js" defer></script>
         <div class="left"></div>
         <div class="right">
-          <p id="para">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste
-            numquam fuga maxime totam exercitationem quia consectetur. Minima
-            voluptates, sequi in doloremque sapiente itaque ipsum nihil? Neque,
-            aliquid. Quasi eveniet cupiditate tempore, minus molestias ut
-            repellat odio beatae molestiae esse voluptate debitis deleniti sint
-            nesciunt delectus explicabo nisi sed aut optio?
+          <h2>Binary Tree Algorithm</h2>
+          <p id="para" style="color: #d2d2d2; margin-left: 7 px;">
+            It can build the entire maze by looking at only a single cell at a time.
+            <br><br>
+            Here’s how it works: for every cell in the grid, randomly carve a passage either north, or west.
+            <br><br>
+            That’s it. You can mix it up if you want, and choose between other diagonal sets: north/east, south/west, or south/east, but whichever diagonal set you select must be used consistently throughout the entire maze.
           </p>
           <button id="go">Start!</button>
           <div class = "gridsize">
