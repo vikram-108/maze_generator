@@ -31,3 +31,6 @@ https://user-images.githubusercontent.com/84006129/180632776-83084cfd-33b6-4fcf-
 
 https://user-images.githubusercontent.com/84006129/180632778-4b2fb5d2-2ee2-41c3-91e0-d71d7942911f.mov
 
+Website Link: https://vikram-108.github.io/maze_generator/
+
+Note: After pressing start kindly wait for a few seconds before the visualization starts
