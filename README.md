@@ -33,4 +33,4 @@ https://user-images.githubusercontent.com/84006129/180632778-4b2fb5d2-2ee2-41c3-
 
 Website Link: https://vikram-108.github.io/maze_generator/
 
-Note: After pressing start kindly wait for a few seconds before the visualization starts
+Note: To operate the website, kindly choose the dimensions (and bias for recursive division algorithm), then click submit, then only press start. Also wait for a few seconds after pressing start, before the animation starts.
